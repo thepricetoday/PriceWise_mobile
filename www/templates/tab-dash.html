@@ -1,0 +1,64 @@
+<ion-view view-title="PriceWise">
+<div class="row" style="position: absolute;z-index: 100;bottom: 45px;background: #fff;">
+  <div style="width: 60px;">
+    <button class="button" ng-click="budget()" style="line-height: 10px;font-size: 10px;border: 1px solid;">
+  Enter Budget
+</button>
+  </div>
+  <div class="col">
+     <strong>&#8369;{{getBudgetAmount()}}</strong><br> 
+     <strong  style="font-size: 10px;">Budget: </strong>
+  </div>
+  <div class="col">
+   <strong>&#8369;{{getBudgetAmount()-getCartPrice()}}</strong> <br>
+   <strong style="font-size: 10px;">Remaining Budget: </strong> 
+  </div>
+  <div class="col"> 
+   <strong> &#8369;{{getCartPrice()}}</strong> <br>
+    <strong style="font-size: 10px;">Selected Item Total:</strong> 
+  </div>
+</div>
+  <ion-content class="padding">
+
+  <div class="item item-text-wrap">
+    <center class="title">
+    <h2 ng-repeat="place in places"><strong >{{place.markets}}</strong></h2>
+    <div ng-repeat="data in updata"><strong>Date:</strong> {{data.date_start  | date:'MMMM-dd'}} to {{data.date_end | date:'MMMM-dd-yyyy'}}</div>
+    </center>
+      <button class="button btn-locator" ng-click="placeModal()"></button>
+  </div>
+   </div>
+    <div class="list list-inset"> 
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" placeholder="Search" ng-model="name">
+  </label>
+</div>
+  <div class="item item-divider">
+           COMMODITY PREVAILING RETAIL PRICES
+        </div>
+<ion-list>
+<ion-item ng-repeat="product in list | filter:name">
+          <div class="row">
+        <div class="col-item col-image "><center><img src="{{product.imageURL}}" onError="this.onerror=null;this.src='../www/img/NoImage.png';"></center></div>
+
+  <div class="col"><center>
+    <div class="col-name"><strong>{{product.name}}</strong></div>
+     <div class="col-list">&#8369;{{product.price}}/{{product.unitofmeasure}}</div>
+     <div class="col-name"><strong>Quantity</strong></div>
+     <div class="col-name"><p>Ex. if 1 1/2 use 1.5</p></div>
+     <div class="col-list"><input class="quantityfield"type="text" ng-model="product.quantity"></div>
+     </center>
+     </div>
+      <div class="col">
+        <button class="button button-balanced" ng-disabled="!product.quantity" ng-click="addToCart(product)" style="padding: 6px;height: 10px;margin-top: 30px;margin-left: 20px;"><img src="../www/img/logomini2.png" alt=""></button>
+   
+     </div>
+     </div>
+        </ion-item>
+    
+    </ion-list>
+  </ion-content>
+</ion-view>
+
+ 

@@ -1,0 +1,41 @@
+<ion-view view-title="">
+<ion-nav-buttons side="right">
+  <button class="button button-outline button-light" ng-click="ListtoCart(product)">
+    <i class="icon ion-arrow-right-a"></i><i class="icon fa fa-shopping-basket fa-3"></i>
+  </button>
+</ion-nav-buttons>
+   <ion-content class="padding">
+   <div class="item item-divider divider-purchased">
+          <div style="width: 50%; float: left;">
+          Purchased Items
+          </div>
+           <div class=""><strong>Total: </strong> 
+   <strong>&#8369;{{getTotalPurchased()}}</strong> </div>
+        </div>
+    <ion-list>
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="product in PurchasedItems" type="item-text-wrap" >
+       <div class="col-item row" style="width: 100%;">
+          <div class="col-name" style="width: 50%;float: left;">
+            <strong>{{product.ProductName}}</strong>
+          </div>
+          <div class="col-name" style="width: 50%;float: left;">
+            {{product.Quantity}} X &#8369;{{product.Price}}/{{product.Unitofmeasure}}</div>
+        </div>   
+      </ion-item>
+    </ion-list>
+     <div class="item item-divider divider-unpurchased">
+         Unpurchased Items
+        </div>
+    <ion-list>
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="product in UnpurchasedItems" type="item-text-wrap" >
+         <div class="col-item row" style="width: 100%;">
+          <div class="col-name" style="width: 50%;float: left;">
+           <strong>{{product.ProductName}}</strong>
+          </div>
+          <div class="col-name" style="width: 50%;float: left;">
+            {{product.Quantity}} X &#8369;{{product.Price}}/{{product.Unitofmeasure}}</div>
+        </div>   
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  </ion-view>

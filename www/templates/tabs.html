@@ -1,0 +1,29 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+
+
+<ion-tabs class="tabs-icon-top">
+  <div class="badge-counter">
+    <span class="badge badge-assertive">{{cart.length}}</span></div>
+  <!-- Dashboard Tab -->
+  <ion-tab title="Price List" icon-off="fa fa-tag fa-2 icon" icon-on="icon fa fa-tags fa-3" href="#/tab/dash">
+    <ion-nav-view name="tab-dash"></ion-nav-view>
+  </ion-tab>
+  
+  <!-- Chats Tab -->
+  <ion-tab title="Basket" icon-off="fa fa-shopping-basket icon fa-2" icon-on="icon fa fa-shopping-basket fa-3" href="#/tab/chats">
+    <ion-nav-view name="tab-chats"></ion-nav-view>
+
+  </ion-tab>
+
+  <!-- Account Tab -->
+  <ion-tab title="My Account" icon-off="fa fa-user icon fa-2" icon-on="fa fa-user icon fa-3 icon " href="#/tab/account">
+    <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>
+

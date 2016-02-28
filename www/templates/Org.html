@@ -1,0 +1,30 @@
+<ion-view view-title="Price related Offices">
+   <ion-content class="padding">
+   <div class="list" ng-repeat="Office in Offices">
+
+  <div class="item item-divider">
+    {{Office.OfficeName}}
+  </div>
+
+  <div class="item">
+    Address: {{Office.address}}
+  </div>
+  <div class="item">
+    Email: {{Office.email}}
+  </div>
+
+  <div class="item item-button-right">
+    Contact No.: {{Office.contact}}
+    <a class="button button-positive" href="tel:{{Office.contact}}">
+      <i class="icon ion-ios-telephone"></i>
+    </a>
+  </div>
+
+  <a class="item" href="#" onclick="window.open('{{Office.website}}', '_system', 'location=yes'); return false;">
+    Website: {{Office.website}}
+  </a>
+	
+  
+</div>
+  </ion-content>
+</ion-view>

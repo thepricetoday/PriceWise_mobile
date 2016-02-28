@@ -1,0 +1,103 @@
+<ion-view view-title="Basket">
+ <ion-nav-buttons side="left">
+  <button class="button button-outline button-light" ng-click="addtoAccount()">
+   <strong> Save</strong>
+  </button>
+</ion-nav-buttons>
+<ion-nav-buttons side="right">
+  <button class="button button-outline button-assertive" ng-click="clear()">
+  <strong> Clear Data</strong>
+  </button>
+</ion-nav-buttons>
+ <div class="row" style="position: absolute;z-index: 100;bottom: 45px;background: #fff;">
+  <div class="col"> 
+   <strong> &#8369;{{getCashOut()}}</strong> <br>
+   <strong style="font-size: 10px;"> Cash Out: </strong> <br>
+  </div>
+  <div class="col"> 
+   <strong> &#8369;{{getCartPrice()}}</strong> <br>
+   <strong style="font-size: 10px;">Selected Item Total:</strong> <br>
+  </div>
+</div>
+  <ion-content class="padding">
+    <div style="right: -15px;top: -30px;position: absolute;z-index: 100;background-color: #5CD953;border-radius: 50%;height: 60px;border: 5px solid #fff;width: 60px;margin: 10px;box-shadow: -3px -2px 8px #000;
+" ng-click="addCutomize()">
+<button style="background: none;border: 0px;line-height: 9px;padding: 5px;color:#fff;font-size: 9px;" >
+  Add Cuztomize Product
+</button>
+</div>
+  <div class="card">
+  <div class="item">
+  <div class="row">
+<div class="col">
+   <strong>&#8369;{{getBudgetAmount()}}</strong><br>
+   <strong style="font-size: 12px;">Budget: </strong> 
+  </div>
+  <div class="col">
+    
+   <strong>&#8369;{{getBudgetAmount()-getCartPrice()}}</strong> <br>
+   <strong style="font-size: 12px;">Remaining Budget: </strong> 
+  </div> </div>
+   </div>
+   <div class="item item-divider">
+         <div style="width: 50%; float: left;">
+         My List 
+          </div>
+        </div>
+    <ion-list>
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="product in cart" type="item-text-wrap">
+      <div class="row">
+      <div class="col-item row" style="width: 100%;">
+          <div class="col-name" style="width: 50%;float: left;">
+            <strong>{{product.name}}</strong>
+          </div>
+          <div class="col-name" style="width: 50%;float: left;">
+            {{product.quantity}} {{product.unitofmeasure}} - &#8369;{{product.price}}</div>
+        </div>   
+     </div>
+        <i class="icon ion-chevron-left icon-accessory"></i>
+        <ion-option-button class="button-energized" ng-click="purchased(product)">
+          Purchased
+        </ion-option-button>
+         <ion-option-button class="button-assertive" ng-click="unpurchased(product)">
+          Unpurchased
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+
+    <div class="item item-divider divider-purchased">
+          <div style="width: 50%; float: left;">
+          Purchased Items
+          </div>
+          
+    </div>
+    <ion-list>
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="product in purchased_Items " type="item-text-wrap" >
+        <div class="col-item row" style="width: 100%;">
+          <div class="col-name" style="width: 50%;float: left;">
+            <strong>{{product.name}}</strong>
+          </div>
+          <div class="col-name" style="width: 50%;float: left;">
+            {{product.quantity}} {{product.unitofmeasure}} - &#8369;{{product.price}}</div>
+        </div>   
+      </ion-item>
+    </ion-list>
+
+     <div class="item item-divider divider-unpurchased">
+         Unpurchased Items
+      </div>
+    <ion-list>
+      <ion-item class="item-remove-animate item-icon-right" ng-repeat="product in unpurchased_Items" type="item-text-wrap" >
+        <div class="col-item row" style="width: 100%;">
+          <div class="col-name" style="width: 50%;float: left;">
+            <strong>{{product.name}}</strong>
+          </div>
+          <div class="col-name" style="width: 50%;float: left;">
+            {{product.quantity}} {{product.unitofmeasure}} - &#8369;{{product.price}}</div>
+        </div>   
+      </ion-item>
+
+    </ion-list>
+     </div>
+  </ion-content>
+</ion-view>
