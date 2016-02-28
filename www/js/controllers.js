@@ -562,7 +562,7 @@ $http.get('http://localhost/PriceWiseWeb/productprice/Option/1').
 })
 
 
-.controller('ListCtrl', function($scope,$http,$rootScope,sessionService) {
+.controller('ListCtrl', function($scope,$http,$rootScope,$state,sessionService) {
   $scope.PrevList = [];
   var ID = sessionService.get('userID');
         
@@ -583,7 +583,9 @@ $http.get('http://localhost/PriceWiseWeb/productprice/Option/1').
           var ID = item.mobile_user_basketID;
            $http.delete("http://localhost/PriceWiseWeb/productprice/DeleteList/"+ID)
         }
-
+$scope.reloadRoute = function() {
+   $state.go($state.current, {}, {reload: true});
+}
 
 
 })
